@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+<title>おみくじ</title>
+</head>
+<body>
+
+<header>
+  <h1>おみくじ</h1>
+</header>
+
+<main>
+  <ul>
+    <li id="pull">おみくじを引く</li>
+  </ul>
+  <p id="echo"></p>
+</main>
+
+<footer>フッター</footer>
+<script>
+  alert("今日の運勢を占いますか？");
+  $(function(){
+    $("#pull").on("click", function(){
+       const random = Math.ceil(Math.random() * 5);
+      if( random === 1 ){
+          $("#echo").html("あなたの今日の運勢は大吉です")
+      }else if(random === 2 ){
+        $("#echo").html("今日はいいことがあるかも！中吉です！")
+      }
+      else if(random === 3 ){
+        $("#echo").html("今日は自分で運を引き寄せましょう！吉です。")
+      }else if(random === 4 )
+      { $("#echo").html("あなたの今日の運勢は凶。。。今日は気を引き締めていきましょう。")}
+      else if(random === 5 )
+      { $("#echo").html("末吉！末広がりだとポジティブに捉えていきましょう。")}
+    });
+  });
+
+</script>
+</body>
+</html>

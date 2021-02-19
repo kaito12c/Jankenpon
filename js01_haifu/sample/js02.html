@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>JS練習</title>
+</head>
+<body>
+<h1 id="echo">JS練習</h1>
+    
+
+
+
+<script>
+
+// 【 比較演算子(relation)】2つの値を比べる際に使用します。
+//   ===   等しければ true
+//   !==   等しくなければ true
+//  >   左側の方が大きければ true
+//  <   左側の方が小さければ true
+//  >=   左側の方が大きい、または同じなら true
+//   <=   左側の方が小さい、または同じなら true
+
+                
+ 
+
+let number = 10;
+if(number !== 10){
+    console.log("10ではありません");
+}
+else{
+    console.log("10かもしれません");
+}
+
+let number2 = -5;
+if(number2 > 0){
+    console.log("0より大きいです");
+} else{
+    console.log("0以下です");
+}
+
+// const a = 1;
+// const b ="山"
+// if(a < 1 ){
+//     alert("1以上だよ");
+// }  else{
+//     alert("計算できる？")
+// }
+// if(b !== "山"){
+//     alert("山じゃないよ！")
+// } else{
+//     alert("山だよ！！")
+// }
+
+
+// 【 論理演算子(Logical operator)】 2つの真偽値をさらに比較する際に使用します
+//  &&  AND処理:両方とも同じなら true
+//  ||  OR処理:どちらかが trueなら true
+//  !  NOT演算:trueならfalseへ falseならtrueへ
+
+const value = 10;
+if( value >= 5 && value <= 15){
+    alert ("valueは5以上15以下です。")
+}
+if(value === 5 || value === 10){
+    alert("5あるいは10です")
+}else{("それ以外です")}
+
+
+</script>
+</body>
+</html>

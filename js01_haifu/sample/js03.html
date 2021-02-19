@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>JS練習</title>
+</head>
+<body>
+<h1 id="echo">JS練習</h1>
+<button id="mybtn" class="className">ボタンです。</button>
+
+<script>
+// const random = Math.random();
+// 小数点まで表すもの
+// MathのMは大文字 .も必要。
+// alert(random);
+
+
+// const ceilNum = Math.ceil(Math.random() * 5);
+// alert(ceilNum)
+// Math.ceil(3.45) ==>4 
+// Math.ceil(1.24) ==>2 =つまり数字を切り上げる
+// コードは基本的に上から読まれていく。
+
+const btn = document.querySelector("#mybtn")
+btn.style.color="#ff0000";
+btn.style.fontSize = "40px";
+btn.innerHTML="変更したボタンです！";
+
+document.querySelector("#mybtn").onclick = function(e){
+    alert("Hello world!");
+};
+
+</script>
+</body>
+</html>

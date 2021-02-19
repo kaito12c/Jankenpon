@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+<title>じゃんけんで脳を鍛えろ！</title>
+</head>
+<body>
+
+<header>
+  <img src="images/usa-left.png" alt="usa-top" class="head-img1">
+  <h1>あなたの脳年齢は何歳？</h1>
+  <img src="images/kae-migi.png" alt="kae-top" class="head-img2">
+</header>
+
+<main>
+  
+  <h2>じゃんけんで負けください。</h2>
+  <h3 id=view2></h3>
+  <button id=btn>スタート</button>
+  <h2 id>経過時間</h2>
+  <div id="log"></div>
+
+  <h3 id="a1">相手のじゃんけん</h3>
+  <ul>
+    <li id="rand">グー</li>
+
+  </ul>
+  <div id="rand"></div>
+  <h3 id="a1">自分のじゃんけん</h3>
+
+  <ul>
+    <li id="gu_btn" >グー</li>
+    <li id="cho_btn">チョキ</li>
+    <li id="par_btn">パー</li>
+  </ul>
+
+  <h2 id="judgment"></h2>
+
+  <button type="button" id="resultButton">結果</button>
+  <p id="output"></p>
+</main>
+
+<footer></footer>
+<script>
+
+
+// ↓反復処理
+  let str = "";
+  for(let i=1; i<15; i++){
+      str += `${i}回目`;
+    }
+    $("#view2").html(str);
+
+    // ランダムでじゃんけんを表示
+    $("#btn").on("click",function(){
+         const random = Math.ceil(Math.random() * 3);
+          if( random === 1 ){
+             $("#rand").html("グー")
+            }else if(random === 2 ){
+              $("#rand").html("チョキ")
+            }
+            else if(random === 3 ){
+              $("#rand").html("パー")
+          }
+        
+
+          var count = 0; //正解数カウント用
+
+        // クリックしたらどう表示されるか。
+        $("#gu_btn").on("click",function(){
+          let view =" "
+          if( random == 3 ){
+            view='<img src=images/maru.png>';
+            count ++;
+          }else{
+            view='<img src=images/batsu.png>';
+              }
+          $("#judgment").html(view);
+          $('#judgment').fadeOut(3000);
+          quizCount++
+        });
+
+        $("#cho_btn").on("click",function(){
+          let view =" "
+          if( random == 1 ){
+            view='<img src=images/maru.png>';
+            count ++;
+          }else{
+            view='<img src=images/batsu.png>';
+              }
+        $("#judgment").html(view);
+        $('#judgment').fadeOut(3000);
+        quizCount++
+        });
+
+        $("#par_btn").on("click",function(){
+          let view =" "
+          if( random == 2 ){
+            view='<img src=images/maru.png>';
+            count ++;
+          }else{
+            view='<img src=images/batsu.png>';
+              }
+          $("#judgment").html(view);
+          $('#judgment').fadeOut(3000);
+          quizCount++
+        });
+      });
+  resultButton.innerHTML = count + "/" + quizCount; //正解数/出題数表示
+// 制限時間を設けるzsz
+  const totalTime = 50000;
+  const oldTime = Date.now();
+
+  const timeId = setInterval(() => {
+    const currentTime = Date.now();
+
+    // 差分を求める
+    const diff = currentTime - oldTime;
+    const diffSec = totalTime - diff;
+
+    //ミリ秒を整数に変換
+    const remainSec = Math.ceil(diffSec / 10000);
+    let text = `残り${remainSec}秒`;
+
+    // 0秒以下になったら
+    if (diffSec <= 0) {
+      clearInterval(timeId);
+
+      // タイマー終了の文言を表示する
+      text = "終了";
+      alert("終了です！結果を押してください！");
+    }
+
+    // 画面に表示する
+    document.querySelector('#log').innerHTML = text;
+  })
+
+
+</script>
+</body>
+</html>
